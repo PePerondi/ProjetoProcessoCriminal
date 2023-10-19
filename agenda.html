@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agenda</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Evento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10/10/2023</td>
+                <td>13:30 </td>
+                <td>Abertura do Processo</td>
+            </tr>
+            <tr>
+                <td>19/10/2023</td>
+                <td>14:30 </td>
+                <td>Reunião com o cliente Edertec</td>
+            </tr>
+            <tr>
+                <td>23/10/2023</td>
+                <td>09:30</td>
+                <td>Tribunal do Júri no caso XXXX</td>
+            </tr>
+            <!-- Adicione mais eventos aqui -->
+        </tbody>    
+    </table>
+    <button onclick="adicionarLinha()">Adicionar Evento</button>
+    <script>
+        function adicionarLinha() {
+            var tabela = document.querySelector("table tbody");
+            var novaLinha = document.createElement("tr");
+
+            var novaData = document.createElement("td");
+            novaData.textContent = "Nova Data";
+
+            var novaHora = document.createElement("td");
+            novaHora.textContent = "Nova Hora";
+
+            var novoEvento = document.createElement("td");
+            novoEvento.textContent = "Novo Evento";
+
+            novaLinha.appendChild(novaData);
+            novaLinha.appendChild(novaHora);
+            novaLinha.appendChild(novoEvento);
+
+            tabela.appendChild(novaLinha);
+        }
+    </script>
+</body>
+</html>

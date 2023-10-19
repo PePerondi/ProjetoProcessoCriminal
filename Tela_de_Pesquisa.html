@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Organizador de Casos</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+	
+	<div class="limiter">
+		
+		<div class="container-login100">
+			<div class="wrap-login100 ">
+				<h1>Histórico de Processos</h1>
+				<!-- Input de pesquisa -->
+				<select id="categoriaPesquisa">
+                    <option value="codigo">Código</option>
+                    <option value="nome">Nome</option>
+                    <option value="crime">Tipo de Crime</option>
+                </select>
+				<input type="text" id="nomePesquisa" placeholder="Digite um nome">
+				<button onclick="pesquisarNome()">Pesquisar</button>
+
+				<!-- Resultados da pesquisa -->
+				<div id="resultado"></div>
+				<!-- Lista de nomes (exemplo) -->
+				<h2>Lista de Nomes</h2>
+				<ul id="listaNomes">
+					<li>João</li>
+					<li>Maria</li>
+					<li>123</li>
+				</ul>
+			
+				<script>
+					// Função de pesquisa de nomes
+					function pesquisarNome() {
+						// Código de pesquisa
+						var nomePesquisado = document.getElementById("nomePesquisa").value.toLowerCase();
+						var listaNomes = document.getElementById("listaNomes");
+
+						// Limpar resultados anteriores
+						document.getElementById("resultado").innerHTML = "";
+
+						// Loop através dos nomes na lista para redefinir a cor
+						for (var i = 0; i < listaNomes.children.length; i++) {
+							var nomeItem = listaNomes.children[i];
+							nomeItem.style.color = ""; // Redefinir a cor para a cor padrão
+						}
+
+						// Loop através dos nomes na lista para realizar a pesquisa
+						for (var i = 0; i < listaNomes.children.length; i++) {
+							var nomeItem = listaNomes.children[i];
+							var nome = nomeItem.textContent.toLowerCase();
+
+							// Verificar se o nome pesquisado está presente no nome atual
+							if (nome.includes(nomePesquisado)) {
+								// Mudar a cor do nome encontrado
+								nomeItem.style.color = "#b8860b";
+								return; // Parar a pesquisa após encontrar o primeiro resultado
+							}
+						}
+						// Se não encontrar nenhum resultado
+						document.getElementById("resultado").textContent = "Nenhum nome encontrado.";
+					}
+				</script>
+					<div class="container-login100-form-btn">
+						<a href="Processo.html" class="login100-form-btn">Adicionar Processo</a>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
