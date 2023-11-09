@@ -1,0 +1,72 @@
+
+				<script>
+					// Função de pesquisa de nomes
+					function pesquisarNome() {
+						// Código de pesquisa
+						var nomePesquisado = document.getElementById("nomePesquisa").value.toLowerCase();
+						var listaNomes = document.getElementById("listaNomes");
+
+						// Limpar resultados anteriores
+						document.getElementById("resultado").innerHTML = "";
+
+						// Loop através dos nomes na lista para redefinir a cor
+						for (var i = 0; i < listaNomes.children.length; i++) {
+							var nomeItem = listaNomes.children[i];
+							nomeItem.style.color = ""; // Redefinir a cor para a cor padrão
+						}
+
+						// Loop através dos nomes na lista para realizar a pesquisa
+						for (var i = 0; i < listaNomes.children.length; i++) {
+							var nomeItem = listaNomes.children[i];
+							var nome = nomeItem.textContent.toLowerCase();
+
+							// Verificar se o nome pesquisado está presente no nome atual
+							if (nome.includes(nomePesquisado)) {
+								// Mudar a cor do nome encontrado
+								nomeItem.style.color = "#b8860b";
+								return; // Parar a pesquisa após encontrar o primeiro resultado
+							}
+						}
+						// Se não encontrar nenhum resultado
+						document.getElementById("resultado").textContent = "Nenhum nome encontrado.";
+					}
+
+                        const nomes = ["João", "Maria", "123"];
+                        const codigos = ["001 - Roubo", "002 - Furto", "003 - Assalto"];
+                    
+                        // Função de pesquisa
+                        function pesquisar() {
+                            const categoria = document.getElementById("categoriaPesquisa").value;
+                            const termoPesquisa = document.getElementById("nomePesquisa").value.toLowerCase();
+                            const listaResultados = document.getElementById("resultado");
+                    
+                            // Limpar resultados anteriores
+                            listaResultados.innerHTML = "";
+                    
+                            let lista;
+                            if (categoria === "nome") {
+                                lista = nomes;
+                            } else if (categoria === "codigo") {
+                                lista = codigos;
+                            } else {
+                                listaResultados.textContent = "Categoria de pesquisa inválida.";
+                                return;
+                            }
+                    
+                            let encontrou = false;
+                    
+                            for (const item of lista) {
+                                if (categoria === "nome" && item.toLowerCase().includes(termoPesquisa)) {
+                                    nomeItem.style.color = "#b8860b";
+                                    encontrou = true;
+                                } else if (categoria !== "nome" && item.toLowerCase().includes(termoPesquisa)) {
+                                    listaResultados.innerHTML += `<p>${item}</p>`;
+                                    encontrou = true;
+                                }
+                            }
+                    
+                            if (!encontrou) {
+                                listaResultados.textContent = "Nenhum resultado encontrado.";
+                            }
+                        }
+                    </script>
