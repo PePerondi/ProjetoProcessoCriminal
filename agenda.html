@@ -63,13 +63,19 @@
             var novaLinha = document.createElement("tr");
 
             var novaData = document.createElement("td");
-            novaData.textContent = "Nova Data";
+            var novaDataInput = document.createElement("input");
+            novaDataInput.type = "text";
+            novaData.appendChild(novaDataInput);
 
             var novaHora = document.createElement("td");
-            novaHora.textContent = "Nova Hora";
+            var novaHoraInput = document.createElement("input");
+            novaHoraInput.type = "text";
+            novaHora.appendChild(novaHoraInput);
 
             var novoEvento = document.createElement("td");
-            novoEvento.textContent = "Novo Evento";
+            var novoEventoInput = document.createElement("input");
+            novoEventoInput.type = "text";
+            novoEvento.appendChild(novoEventoInput);
 
             novaLinha.appendChild(novaData);
             novaLinha.appendChild(novaHora);

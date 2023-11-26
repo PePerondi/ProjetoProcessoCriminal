@@ -32,7 +32,7 @@
 
 				
 
-				<form class="login100-form validate-form">
+				<form id="loginForm" class="login100-form validate-form">
 					<span class="login100-form-title">
 						Cadastro
 					</span>
@@ -54,20 +54,11 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<a href="Tela_de_Pesquisa.html" class="login100-form-btn">Login</a>
-					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Esqueceu
-						</span>
-						<a class="txt2" href="#">
-							Usuário / Senha
-						</a>
+						<a href="javascript:void(0);" class="login100-form-btn" onclick="if(validarLogin()) window.location.href='Tela_de_Pesquisa.html';">Login</a>
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="cadastro.html" onclick="criarUsuario()">
+						<a class="txt2" href="templates\cadusuario.html" onclick="criarUsuario()">
 							Crie sua conta
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
@@ -76,7 +67,20 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+		function validarLogin() {
+		var email = document.forms["loginForm"]["email"].value;
+		var senha = document.forms["loginForm"]["pass"].value;
+
+		if (email === "" || senha === "") {
+		alert("Por favor, preencha ambos os campos de e-mail e senha");
+		return false;
+		} else {
+			return true;
+		// Ou envie o formulário para o servidor, dependendo da lógica do seu aplicativo.
+		}
+	}
+	</script>
 	
 
 	
